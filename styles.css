@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap');
+
+:root {
+  --bg: #0f0e0c;
+  --surface: #1a1814;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --text: #f0ead8;
+  --muted: #7a6f5a;
+  --border: rgba(201, 168, 76, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+
+  /* Subtle noise texture */
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+}
+
+/* Decorative top rule */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+
+  /* Subtle gold shimmer on the heading */
+  background: linear-gradient(135deg, var(--text) 40%, var(--gold-light) 60%, var(--text) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Ornamental divider under the heading */
+h1::after {
+  content: '— ✦ —';
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
+  margin-top: 0.6rem;
+  opacity: 0.7;
+}
+
+form {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  max-width: 480px;
+  width: 100%;
+}
+
+form:focus-within {
+  border-color: rgba(201, 168, 76, 0.5);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.6), 0 0 20px rgba(201, 168, 76, 0.08);
+}
+
+input[type="text"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.9rem 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+input[type="text"]::placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+
+button[type="submit"] {
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  padding: 0.9rem 1.4rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  white-space: nowrap;
+}
+
+button[type="submit"]:hover {
+  background: var(--gold-light);
+}
+
+button[type="submit"]:active {
+  background: var(--gold);
+  transform: scale(0.98);
+}
