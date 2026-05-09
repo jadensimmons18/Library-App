@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 const express = require("express"); // loads express and stores it in var named express
 
 const app = express(); 

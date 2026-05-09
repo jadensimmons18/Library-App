@@ -1,6 +1,7 @@
 {
   "name": "library-project",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "books.js",
   "scripts": {
