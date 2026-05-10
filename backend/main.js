@@ -1,5 +1,9 @@
 import { Library } from "./library.js";
 import { Book } from "./books.js";
+import { createCard } from "./render.js";
+import { createLibrary } from "./render.js";
+
+console.log("Connected!!");
 
 const library = new Library();
 
@@ -55,9 +59,8 @@ function main(){
     library.addBook(prideAndPrejudice);
     library.addBook(hungerGames);
 
-    for (let i = 0; i < library.books.length; i++){
-        console.log(library.books[i].info());
-    }
+    // Render Library
+    createLibrary(library.books);
 }
 
 main();

@@ -12,9 +12,9 @@ export class Library {
 
         const lowerInput = input.toLowerCase();
 
-        for (let i = 0; i < Library.length; i++){
-            if (Library[i].title.toLowerCase().includes(lowerInput) || Library[i].author.toLowerCase().includes(lowerInput)) {
-                results.push(Library[i]);
+        for (let i = 0; i < this.books.length; i++){
+            if (this.books[i].title.toLowerCase().includes(lowerInput) || this.books[i].author.toLowerCase().includes(lowerInput)) {
+                results.push(this.books[i]);
             }
         }
         return results;

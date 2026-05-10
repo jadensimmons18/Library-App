@@ -12,7 +12,7 @@ export class Book {
 
     info() {
         return this.title + " by " + this.author + ", " +
-               this.pages + " pages, " + (this.read ? "read" : "not read");
+               this.pages + " pages, ";
     }
 }
 
